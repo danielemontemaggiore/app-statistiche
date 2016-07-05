@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity
 		return intent;
 	}
 
-//Ciao
+
 	public static Intent newIntent(Context context, String url)
 	{
 		Intent intent = new Intent(context, MainActivity.class);
@@ -62,6 +63,22 @@ public class MainActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		TextView THotspot = (TextView) findViewById(R.id.THotspot);
+
+
+		THotspot.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent myIntent = new Intent(MainActivity.this, HotspotActivity.class);
+				MainActivity.this.startActivity(myIntent);
+			}
+			});
+
+
+
+
 
 		// handle intent extras
 		Bundle extras = getIntent().getExtras();

@@ -5,10 +5,18 @@
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/splash" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imgLogoWeGest"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/logo_wegest_trasparente"
+        android:layout_centerHorizontal="true" />
 
 
 

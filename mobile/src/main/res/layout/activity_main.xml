@@ -19,6 +19,7 @@
 
 			<include layout="@layout/toolbar" />
 
+			<include layout="@layout/navigation_toolbar" />
 
 			<FrameLayout
 				android:id="@+id/container_drawer_content"
