@@ -49,8 +49,11 @@ public class HotspotActivity extends AppCompatActivity {
                 WifiManager wifiManager = (WifiManager) context .getSystemService(Context.WIFI_SERVICE);
 
                 //setMobileDataState(true);
-                WifiAPController wifiAPController  = new WifiAPController();
-                wifiAPController.wifiToggle("reteProva", "12345678", wifiManager, context);
+                //WifiAPController wifiAPController  = new WifiAPController();
+                //wifiAPController.wifiToggle("reteProva", "12345678", wifiManager, context);
+
+                //turnOnOffHotspot(context, true);
+                ApManager.configApState(HotspotActivity.this);
                 info2.setText("Il suo Hotspot personale è stato attivato.");
                 tnome.setText("Nome Rete :");
                 tnomerete.setText("La Parrucchieria");
@@ -79,6 +82,22 @@ public class HotspotActivity extends AppCompatActivity {
         catch (Exception ex)
         {
             Log.e("ERROR", "Error setting mobile data state", ex);
+        }
+    }
+
+    public static void turnOnOffHotspot(Context context, boolean isTurnToOn) {
+        WifiManager wifiManager = (WifiManager) context
+                .getSystemService(Context.WIFI_SERVICE);
+        WifiApControl apControl = WifiApControl.getApControl(wifiManager);
+        if (apControl != null) {
+
+            // TURN OFF YOUR WIFI BEFORE ENABLE HOTSPOT
+            //if (isWifiOn(context) && isTurnToOn) {
+            //  turnOnOffWifi(context, false);
+            //}
+
+            apControl.setWifiApEnabled(apControl.getWifiApConfiguration(),
+                    isTurnToOn);
         }
     }
 }

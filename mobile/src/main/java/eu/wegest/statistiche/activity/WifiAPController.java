@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 public class WifiAPController extends Activity {
     public int a;
@@ -117,6 +118,7 @@ public class WifiAPController extends Activity {
     }
 
     private void initWifiAPConfig(WifiConfiguration wifiConfiguration){
+        Toast.makeText(getApplicationContext(), "ATTIVO", Toast.LENGTH_SHORT).show();
         wifiConfiguration.SSID = "La Parruccheria";
         wifiConfiguration.preSharedKey = "1234";
         wifiConfiguration.hiddenSSID = false;
