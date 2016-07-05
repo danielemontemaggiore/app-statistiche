@@ -1,6 +1,7 @@
 package eu.wegest.statistiche.activity;
 
 import android.content.*;
+import android.net.ConnectivityManager;
 import android.net.wifi.*;
 import java.lang.reflect.*;
 
@@ -17,6 +18,7 @@ public class ApManager {
         catch (Throwable ignored) {}
         return false;
     }
+
 
     // toggle wifi hotspot on or off
     public static boolean configApState(Context context) {

@@ -35,8 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/global_color_blue_primary_dark"
-        android:textColor="@color/global_bg_back"
-        android:text="Attiva" />
+        android:textColor="@color/global_bg_back" />
 
         <TextView
             android:id="@+id/info2"

@@ -2,6 +2,7 @@ package eu.wegest.statistiche.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import eu.wegest.statistiche.R;
@@ -22,7 +25,7 @@ public class HotspotActivity extends AppCompatActivity {
 
     Button buttonAttiva;
     TextView info,info2, tpass,tpassword,tnome,tnomerete;
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,28 +40,40 @@ public class HotspotActivity extends AppCompatActivity {
         tpass = (TextView) findViewById(R.id.TPass);
         tpassword = (TextView) findViewById(R.id.TPassword);
 
-        info.setText("Per attivare l'Hotspot, è necessario essere connessi ad Internet.");
-        info.setText("Se è già connesso ad internet, clicchi su 'Attiva' per attivare l'Hotspot. ");
+        context = this;
+
+
+        if(ApManager.isApOn(getApplicationContext())){
+            info2.setText("Il suo Hotspot personale è stato attivato.");
+            tnome.setText("Nome Rete :");
+            tnomerete.setText("La Parrucchieria");
+            tpass.setText("Password :");
+            tpassword.setText("1234");
+            buttonAttiva.setText("DISATTIVA");
+            buttonAttiva.setText("DISATTIVA");
+        }
+        else{
+            info.setText("Per attivare l'Hotspot, è necessario essere connessi ad Internet.");
+            info.setText("Se è già connesso ad internet, clicchi su 'Attiva' per attivare l'Hotspot. ");
+            buttonAttiva.setText("ATTIVA");
+        }
+
 
         buttonAttiva.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                Context context = getApplicationContext();
-                WifiManager wifiManager = (WifiManager) context .getSystemService(Context.WIFI_SERVICE);
 
-                //setMobileDataState(true);
-                //WifiAPController wifiAPController  = new WifiAPController();
-                //wifiAPController.wifiToggle("reteProva", "12345678", wifiManager, context);
-
-                //turnOnOffHotspot(context, true);
+                WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+                wifiManager.setWifiEnabled(false);
                 ApManager.configApState(HotspotActivity.this);
                 info2.setText("Il suo Hotspot personale è stato attivato.");
                 tnome.setText("Nome Rete :");
                 tnomerete.setText("La Parrucchieria");
                 tpass.setText("Password :");
                 tpassword.setText("1234");
+                buttonAttiva.setText("DISATTIVA");
             }
         });
 
@@ -66,38 +81,6 @@ public class HotspotActivity extends AppCompatActivity {
 
     }
 
-    public void setMobileDataState(boolean mobileDataEnabled)
-    {
-        try
-        {
-            TelephonyManager telephonyService = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
-            Method setMobileDataEnabledMethod = telephonyService.getClass().getDeclaredMethod("setDataEnabled", boolean.class);
 
-            if (null != setMobileDataEnabledMethod)
-            {
-                setMobileDataEnabledMethod.invoke(telephonyService, mobileDataEnabled);
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.e("ERROR", "Error setting mobile data state", ex);
-        }
-    }
-
-    public static void turnOnOffHotspot(Context context, boolean isTurnToOn) {
-        WifiManager wifiManager = (WifiManager) context
-                .getSystemService(Context.WIFI_SERVICE);
-        WifiApControl apControl = WifiApControl.getApControl(wifiManager);
-        if (apControl != null) {
-
-            // TURN OFF YOUR WIFI BEFORE ENABLE HOTSPOT
-            //if (isWifiOn(context) && isTurnToOn) {
-            //  turnOnOffWifi(context, false);
-            //}
-
-            apControl.setWifiApEnabled(apControl.getWifiApConfiguration(),
-                    isTurnToOn);
-        }
-    }
 }
