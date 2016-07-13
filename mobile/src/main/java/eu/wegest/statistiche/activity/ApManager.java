@@ -27,7 +27,7 @@ public class ApManager {
         WifiConfiguration wificonfiguration = null;
 
 
-        setHotspotName("La Parruccheria", "password", context);
+        setHotspotName("WeGest4U", "sdf25xv49", context);
         try {
             // if WiFi is on, turn it off
             if(isApOn(context)) {
