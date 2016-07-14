@@ -48,7 +48,7 @@ public class HotspotActivity extends AppCompatActivity {
             tnome.setText("Nome Rete :");
             tnomerete.setText("WeGest4U");
             tpass.setText("Password :");
-            tpassword.setText("sdf25xv49");
+            tpassword.setText("wegest4u");
             buttonAttiva.setText("DISATTIVA");
             buttonAttiva.setText("DISATTIVA");
         }
@@ -72,7 +72,7 @@ public class HotspotActivity extends AppCompatActivity {
                 tnome.setText("Nome Rete :");
                 tnomerete.setText("WeGest4U");
                 tpass.setText("Password :");
-                tpassword.setText("sdf25xv49");
+                tpassword.setText("wegest4u");
                 buttonAttiva.setText("DISATTIVA");
             }
         });

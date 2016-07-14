@@ -27,7 +27,7 @@ public class ApManager {
         WifiConfiguration wificonfiguration = null;
 
 
-        setHotspotName("WeGest4U", "sdf25xv49", context);
+        setHotspotName("WeGest4U", "wegest4u", context);
         try {
             // if WiFi is on, turn it off
             if(isApOn(context)) {
