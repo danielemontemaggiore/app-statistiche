@@ -46,9 +46,9 @@ public class HotspotActivity extends AppCompatActivity {
         if(ApManager.isApOn(getApplicationContext())){
             info2.setText("Il suo Hotspot personale è stato attivato.");
             tnome.setText("Nome Rete :");
-            tnomerete.setText("La Parrucchieria");
+            tnomerete.setText("WeGest4U");
             tpass.setText("Password :");
-            tpassword.setText("1234");
+            tpassword.setText("wegest4u");
             buttonAttiva.setText("DISATTIVA");
             buttonAttiva.setText("DISATTIVA");
         }
@@ -70,9 +70,9 @@ public class HotspotActivity extends AppCompatActivity {
                 ApManager.configApState(HotspotActivity.this);
                 info2.setText("Il suo Hotspot personale è stato attivato.");
                 tnome.setText("Nome Rete :");
-                tnomerete.setText("La Parrucchieria");
+                tnomerete.setText("WeGest4U");
                 tpass.setText("Password :");
-                tpassword.setText("1234");
+                tpassword.setText("wegest4u");
                 buttonAttiva.setText("DISATTIVA");
             }
         });

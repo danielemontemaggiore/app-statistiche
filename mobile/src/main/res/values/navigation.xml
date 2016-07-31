@@ -25,7 +25,11 @@
 	-->
 	<string-array name="navigation_url_list">
 		<item></item>
+<<<<<<< HEAD
 		<item>http://www.workingroupitalia.it/app/index.html</item>
+=======
+		<item>http://www.workingroupitalia.it/app/</item>
+>>>>>>> origin/master
 		<item>http://mock.robotemplates.com/webviewapp/products.html</item>
 		<item>http://mock.robotemplates.com/webviewapp/references.html</item>
 		<item>http://mock.robotemplates.com/webviewapp/support.html</item>

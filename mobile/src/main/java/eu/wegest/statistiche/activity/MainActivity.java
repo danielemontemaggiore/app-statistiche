@@ -64,17 +64,7 @@ public class MainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		TextView THotspot = (TextView) findViewById(R.id.THotspot);
 
-
-		THotspot.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				Intent myIntent = new Intent(MainActivity.this, HotspotActivity.class);
-				MainActivity.this.startActivity(myIntent);
-			}
-			});
 
 
 

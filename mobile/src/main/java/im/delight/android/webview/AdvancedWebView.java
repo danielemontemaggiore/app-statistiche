@@ -66,6 +66,8 @@ import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 
+import eu.wegest.statistiche.activity.HotspotActivity;
+
 /** Advanced WebView component for Android that works as intended out of the box */
 @SuppressWarnings("deprecation")
 public class AdvancedWebView extends WebView {
@@ -431,7 +433,12 @@ public class AdvancedWebView extends WebView {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
 				if (isHostnameAllowed(url)) {
-					if (mCustomWebViewClient != null) {
+					// todo: creato per gestire l'intent al click su Hotspot
+					if (url.equals("http://www.workingroupitalia.it/app/hotspot")) {
+						Intent intent = new Intent(getContext(), HotspotActivity.class);
+						view.getContext().startActivity(intent);
+						return true; // Handle By application itself
+					}else if (mCustomWebViewClient != null) {
 						return mCustomWebViewClient.shouldOverrideUrlLoading(view, url);
 					}
 					else {
